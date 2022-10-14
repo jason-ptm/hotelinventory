@@ -1,0 +1,30 @@
+<h1>Welcome to {{title}}</h1>
+
+<div [hidden]="hideRooms">
+    Number of rooms:
+    <p>
+        {{ rooms.length }}
+    </p>
+    <div *ngIf="roomSelected">
+        Room selected:
+        <p>{{roomSelected.id}}</p>
+        <p>{{roomSelected.roomType}}</p>
+        <p>{{roomSelected.amenities}}</p>
+        <p>{{roomSelected.checkOut | date: 'MMMM d, y'}}</p>
+        <p>{{roomSelected.checkIn | date: 'MMMM d, y'}}</p>
+        <p>{{roomSelected.price | currency:'USD'}}</p>
+        <p>{{roomSelected.photos}}</p>
+        <p>{{roomSelected.rating | number: '1.1-1'}}</p>
+    </div>
+</div>
+
+<button (click)="addRoom()">
+    Add room
+</button>
+
+<div *ngIf="rooms.length > 0">
+    Rooms list
+    <app-room-list [rooms]="rooms" (roomSelect)="selectRoom($event)"></app-room-list>
+</div>
+
+<button (click)="toggle()">Toogle</button>

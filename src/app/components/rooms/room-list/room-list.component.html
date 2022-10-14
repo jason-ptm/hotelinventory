@@ -1,0 +1,28 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Type</th>
+            <th scope="col">Amenities</th>
+            <th scope="col">CheckOut</th>
+            <th scope="col">CheckIn</th>
+            <th scope="col">Price</th>
+            <th scope="col">Photos</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Select room</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let room of rooms">
+            <th scope="col">{{room.id}}</th>
+            <td>{{room.roomType}}</td>
+            <td>{{room.amenities}}</td>
+            <td>{{room.checkOut | date: 'MMMM d, y'}}</td>
+            <td>{{room.checkIn | date: 'MMMM d, y'}}</td>
+            <td>{{room.price | currency:'USD'}}</td>
+            <td>{{room.photos}}</td>
+            <td>{{room.rating | number: '1.1-1'}}</td>
+            <td><button class="btn btn-outline-secondary" (click)="selectRoom(room)">Select</button></td>
+        </tr>
+    </tbody>
+</table>
