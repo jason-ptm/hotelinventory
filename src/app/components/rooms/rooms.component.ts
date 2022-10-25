@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Room } from 'src/app/model/room';
 
 @Component({
@@ -12,39 +12,10 @@ export class RoomsComponent implements OnInit {
   hideRooms: boolean = false;
   rooms!: Array<Room>;
   roomSelected!:Room;
-
   constructor() { }
 
   ngOnInit(): void {
-    this.rooms = [
-      {
-        id: 1,
-        roomType: 'Deluxe room',
-        amenities: 'wi-fi, netflix, jacuzzi, terrace',
-        checkOut: new Date(20/12/2022),
-        checkIn: new Date(14/11/2022),
-        price: 3000,
-        photos: ['photo1, photo2'],
-        rating: 4.6
-      }, {
-        id: 2,
-        roomType: 'Deluxe room',
-        amenities: 'wi-fi, netflix, jacuzzi, terrace',
-        checkOut: new Date(20/12/2022),
-        checkIn: new Date(14/11/2022),
-        price: 8400,
-        photos: ['photo1, photo2'],
-        rating: 4.0
-      }, {
-        id: 3,
-        roomType: 'Deluxe room',
-        amenities: 'wi-fi, netflix, jacuzzi, terrace',
-        checkOut: new Date(20/12/2022),
-        checkIn: new Date(14/11/2022),
-        price: 4800,
-        photos: ['photo1, photo2'],
-        rating: 3.2
-      }];
+    this.rooms = [];
   }
 
   addRoom() {
